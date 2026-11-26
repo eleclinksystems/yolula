@@ -1,0 +1,94 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+const grad=(a:string,b:string)=>`linear-gradient(150deg,${a},${b})`;
+const svc=[
+ {t:'Information & Communications Technology (ICT)',tag:'ICT',img:'ict',g:grad('#16808a','#0d2b2e'),items:['Biometrics','Security Intelligence Analysis','Information and Document Security']},
+ {t:'Energy Efficiency & Demand Side Management',tag:'Energy',img:'energy',g:grad('#16a97b','#0d4a3a'),items:['Monitoring and Efficiency','Energy auditing','Certificate Issuance']},
+ {t:'Water & Waste Management',tag:'Water',img:'water',g:grad('#16808a','#143b4a'),items:['Remote Monitoring Using Telemetry','Water Quality - PH, Chlorine, Conductivity, Turbidity','Waste Management']},
+];
+const hs=[['12%','58%','ICT','Biometrics · Security'],['33%','40%','Energy','Monitoring · Audits'],['66%','64%','Water','Telemetry · Quality'],['80%','45%','Waste','Waste management']];
+const feats=['Built on international standards (ISO)','Best practices: ITIL and COBIT','Public and private sector experience','Flexible engagement models','Local customisation in every solution'];
+const words=(s:string)=>s.split(' ');
+---
+<Base title="Yolula Technology (Pty) Ltd — Engineering through technology" description="Yolula Technology is a 100% Black Female owned company delivering ICT, energy efficiency, water and waste management solutions in South Africa.">
+<Nav />
+<main id="top">
+<section id="story" aria-label="Introduction"><div class="stage">
+ <div class="bg" id="cam" role="img" aria-label="Yolula Technology logo"><img class="mark" src="/images/logo.png" alt="" fetchpriority="high"></div>
+ <div class="layer" id="L0"><div class="hero-copy"><span class="chip">Yolula Technology (Pty) Ltd</span><h1><span>Solving global challenges with engineering</span></h1></div>
+  <p class="cap">ICT · Energy Efficiency<br>Water &amp; Waste Management<br>100% Black Female owned</p><p class="hint" aria-hidden="true">Scroll to explore ↓</p></div>
+ <div class="layer" id="L2"><div class="vision"><span class="chip">Our offering</span><h2>{words('Technical depth with local customisation').map(w=><span>{w+' '}</span>)}</h2><p>Our core offering is underpinned by technical and engineering skills built through formal education and years of experience across industries.</p></div></div>
+ <div class="layer" id="L3"><p class="acct">{words('Yolula is fully managed by professionals with over 20 years of combined experience in ICT, Energy Efficiency, Water and Waste Management.').map(w=><span>{w+' '}</span>)}</p>
+  {hs.map(([l,t,a,b])=><button class="hs" style={`left:${l};top:${t}`}><span class="dot"></span><b>{a}</b><em>{b}</em></button>)}</div>
+ <div class="layer" id="L4"><h2 class="cred"><span class="chip">How we work</span>Standards-based engineering you can build on</h2>
+  <ul class="feats">{feats.map(f=><li><span>{f}</span><span>→</span></li>)}</ul></div>
+ <div class="prog"><i id="prog"></i></div></div></section>
+
+<section id="sol" aria-labelledby="st"><div class="head"><div><span class="chip">Our services</span><h2 id="st">Engineering solutions across three disciplines</h2></div><p>Services are structured so clients can choose the engagement model that suits their needs.</p></div>
+ <div class="cards" id="services">{svc.map(s=><article class="card"><div class="pic" style={`background-image:url(/images/${s.img}.jpg),${s.g}`}></div><span class="tag">{s.tag}</span><h3>{s.t}</h3><ul>{s.items.map(i=><li>{i}</li>)}</ul></article>)}</div>
+ <div class="waste"><article class="card"><div class="pic" style={`background-image:url(/images/waste.jpg),${grad('#4c9c45','#0d2b2e')}`}></div><span class="tag">Waste</span><h3>Waste Management</h3><ul><li>Delivered within our Water &amp; Waste Management service</li></ul></article></div></section>
+
+<section id="values"><div><span class="chip">Values</span><h2>What guides us</h2><p>Our core values support the vision and culture, and define the character of Yolula Technology (Pty) Ltd. They are the foundation for how we act and make business decisions. We are committed to solving global challenges with engineering through technology.</p></div>
+<div><span class="chip">Offering</span><h2>Depth you can rely on</h2><p>Our core offering is underpinned by technical and engineering skills acquired through formal education and many years of working experience across industries. Local customisation is at the heart of each innovative solution we provide to our customers and partners.</p></div></section>
+
+<section id="about"><span class="chip">About us</span><h2>A little more about us and where we come from</h2>
+<p>Yolula Technology (Pty) Ltd is 100% Black Female owned and fully managed by professionals with combined experience of over 20 years in ICT, Energy Efficiency, Water and Waste Management. Our services are structured to let clients choose the engagement model that suits their needs. We have experience in both the public and private sectors, with specialists deploying solutions based on international standards (ISO) and best practices (ITIL and COBIT).</p>
+<div class="stats"><div><b data-n="20" data-s="+">0</b><span>Years of combined experience</span></div><div><b data-n="3">0</b><span>Core disciplines</span></div><div><b data-n="100" data-s="%">0</b><span>Black Female owned</span></div></div></section>
+
+<section id="contact"><div class="cwrap"><div><span class="chip">Contact us</span><h2>Let’s talk about your project</h2><p>Keep in touch for more details about our business and services.</p>
+<address class="addr"><div><h3>Contact</h3>Tel: <a href="tel:+27118050073">011 805 0073</a><br>Fax: 086 612 8653<br>Email: <a href="mailto:info@yolula.co.za">info@yolula.co.za</a><br>Web: <a href="https://www.yolula.co.za">www.yolula.co.za</a></div>
+<div><h3>Postal address</h3>Postnet Suite 046<br>Private Bag X08<br>Wierda Park<br>0149</div>
+<div><h3>Physical address (Midrand)</h3>Carlswald Close Office Park<br>Suite C10<br>Cnr New Road &amp; Seventh Road<br>Midrand</div>
+<div><h3>Physical address (Eastern Cape)</h3>14 Molteno Street<br>Barkley East<br>Eastern Cape<br>9786</div></address></div>
+<form id="cf" aria-label="Contact form"><label>Your email<input type="email" name="email" required placeholder="Enter your email here..."></label>
+<label>Reason for contacting<select name="reason"><option>General Enquiries</option><option>ICT</option><option>Energy Efficiency</option><option>Water &amp; Waste Management</option></select></label>
+<label>Message<textarea name="msg" rows="5" required placeholder="Type a description of your query here..."></textarea></label>
+<button class="go" type="submit">Send message</button><p id="fs" role="status" aria-live="polite"></p></form></div></section>
+</main>
+<footer><span>© {new Date().getFullYear()} Yolula Technology (Pty) Ltd</span><span>info@yolula.co.za · 011 805 0073</span></footer>
+<script>
+const $=(s:string)=>document.querySelector<HTMLElement>(s)!,$$=(s:string)=>[...document.querySelectorAll<HTMLElement>(s)];
+const rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+const clamp=(v:number,a=0,b=1)=>Math.min(b,Math.max(a,v)),seg=(p:number,a:number,b:number)=>clamp((p-a)/(b-a)),ease=(t:number)=>t<.5?4*t**3:1-(-2*t+2)**3/2;
+const story=$('#story'),cam=$('#cam'),L0=$('#L0'),L2=$('#L2'),L3=$('#L3'),L4=$('#L4'),prog=$('#prog'),stage=$('.stage');
+const v2=$$('.vision h2 span'),aw=$$('.acct span'),hs=$$('.hs'),rows=$$('.feats li'),cred=$('.cred'),vfade=$$('.vision .chip,.vision p');
+let sp=0,sx=0,sy=0,mx=0,my=0,last=performance.now();
+addEventListener('pointermove',e=>{mx=e.clientX/innerWidth-.5;my=e.clientY/innerHeight-.5});
+const vis=(el:HTMLElement,o:number)=>{el.style.visibility=o<=.001?'hidden':'visible'};
+const b=(x:number)=>rm?0:x;
+function tick(now:number){
+ const dt=Math.min(64,now-last);last=now;
+ const p=clamp(-story.getBoundingClientRect().top/(story.offsetHeight-innerHeight));
+ sp=rm||Math.abs(p-sp)<.0002?p:sp+(p-sp)*(1-.86**(dt/16.7));
+ if(!rm){sx+=(mx-sx)*.06;sy+=(my-sy)*.06}
+ const vp=ease(seg(sp,.05,.7));
+ cam.style.transform=`translate3d(${-sx*18}px,${-sy*12+(1-vp)*innerHeight*.04}px,0) scale(${1.02+vp*.1})`;
+ stage.style.setProperty('--veil',`rgba(13,43,46,${(.55*seg(sp,.1,.2)).toFixed(3)})`);
+ const h=seg(sp,.02,.12);
+ L0.style.opacity=String(1-h);L0.style.transform=`translate3d(0,${-h*60}px,0)`;L0.style.filter=`blur(${b(h*12)}px)`;vis(L0,1-h);
+ const vIn=seg(sp,.16,.27),vOut=seg(sp,.34,.42);
+ v2.forEach((w,i)=>{const k=clamp(vIn*1.6-i*.08);w.style.opacity=String(k*(1-vOut));w.style.transform=`translate3d(0,${(1-k)*30-vOut*60}px,0)`;w.style.filter=`blur(${b((1-k)*12+vOut*14)}px)`});
+ vfade.forEach(e=>e.style.opacity=String(clamp(vIn*2-.6)*(1-vOut)));vis(L2,vIn*(1-vOut));
+ const aIn=seg(sp,.45,.55),aOut=seg(sp,.63,.68);
+ aw.forEach((w,i)=>{const k=clamp(aIn*2.2-i/aw.length*1.2);w.style.opacity=String((.15+.85*k)*(1-aOut)*(aIn>0?1:0));w.style.filter=`blur(${b((1-k)*6+aOut*10)}px)`});
+ hs.forEach((e,i)=>{const k=seg(sp,.49+i*.02,.53+i*.02);e.style.transform=`translate3d(${-sx*30}px,${-sy*20}px,0) scale(${k*(1-aOut)})`});
+ vis(L3,aIn*(1-aOut));
+ const sIn=seg(sp,.72,.82);cred.style.opacity=String(sIn);cred.style.transform=`translateY(${(1-sIn)*30}px)`;cred.style.filter=`blur(${b((1-sIn)*8)}px)`;
+ rows.forEach((r,i)=>{const k=ease(seg(sp,.76+i*.025,.82+i*.025));r.style.opacity=String(k);r.style.transform=`translateX(${(1-k)*40}px)`});
+ vis(L4,sIn);prog.style.transform=`scaleX(${sp})`;
+ requestAnimationFrame(tick)}
+requestAnimationFrame(tick);
+const one=(els:HTMLElement[])=>els.forEach(e=>e.addEventListener('click',()=>{const on=e.classList.contains('on');els.forEach(x=>x.classList.remove('on'));if(!on)e.classList.add('on')}));
+one(hs);one(rows);
+if(!rm)$$('.card').forEach(c=>{c.addEventListener('pointermove',(e:PointerEvent)=>{const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;c.style.transform=`perspective(1000px) rotateY(${x*6}deg) rotateX(${-y*6}deg)`});c.addEventListener('pointerleave',()=>c.style.transform='')});
+$$('[data-n]').forEach(n=>new IntersectionObserver((en,o)=>{if(!en[0].isIntersecting)return;o.disconnect();const t0=performance.now(),N=+n.dataset.n!,s=n.dataset.s||'';
+ const f=(t:number)=>{const k=rm?1:ease(clamp((t-t0)/1600));n.textContent=Math.round(N*k)+s;if(k<1)requestAnimationFrame(f)};requestAnimationFrame(f)},{threshold:.6}).observe(n));
+$('#cf').addEventListener('submit',e=>{e.preventDefault();const f=new FormData(e.target as HTMLFormElement);
+ location.href=`mailto:info@yolula.co.za?subject=${encodeURIComponent(String(f.get('reason')))}&body=${encodeURIComponent(`${f.get('msg')}\n\nReply to: ${f.get('email')}`)}`;
+ $('#fs').textContent='Opening your email app to send this to info@yolula.co.za…'});
+const links=$$('.nav nav a'),secs=['story','sol','values','about','contact'].map(id=>document.getElementById(id)!);
+const spy=()=>{let cur=0;secs.forEach((s,k)=>{if(s.getBoundingClientRect().top<=innerHeight*.45)cur=k});links.forEach((a,k)=>a.classList.toggle('on',k===cur))};
+addEventListener('scroll',spy,{passive:true});addEventListener('resize',spy);spy();
+</script>
+</Base>
